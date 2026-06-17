@@ -1,0 +1,26 @@
+{
+  "name": "Leetcode-Toolkit",
+  "description": "An extension to bring IDE level shortcuts to Leetcode",
+  "permissions": ["activeTab","scripting","storage"],
+  "background":{
+    "service_workers":["background.js"]
+  },
+  "host_permissions":["https://leetcode.com/*"],
+  "content_scripts":[{
+    "matches":["https://leetcode.com/*"],
+    "js":["content.js"]
+  }],
+  "web_accessible_resources": [
+    {
+      "resources": ["inject.js"],
+      "matches": ["https://leetcode.com/*"]
+    }
+  ],
+  "version": "1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "popup.jpg"
+  },
+  "options_page": "settings.html"
+}
